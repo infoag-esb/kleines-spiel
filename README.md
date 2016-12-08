@@ -12,3 +12,4 @@ How To Git:
 3.3. Views || Window -> Show View -> Other... -> Git suchen -> Git Repositories und Git Staging auswählen 
 4. Im Package Explorer müssen wir das "master" Projekt von GitHub, infoag-esb, einbinden
 	 Rechtsklick im Package Explorer -> Import -> Git -> Projects from Git
+d
