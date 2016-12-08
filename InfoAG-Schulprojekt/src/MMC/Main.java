@@ -27,7 +27,7 @@ public class Main extends JFrame implements ActionListener
 		testButton.addActionListener(this);		//listener hinzugefügt
 		
 		testLabel.setBounds(100, 0, 100, 100);		//pos + size 
-		testLabel.setText("Oh hey");		//text vom label gesetzt
+		testLabel.setText("einfacher Label");		//text vom label gesetzt
 		
 		this.add(testButton);		//button komponent wird zum frame geadded
 		this.add(testLabel);		//label zum frame geadded
