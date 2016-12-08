@@ -14,27 +14,32 @@ import java.awt.event.ActionListener;
 public class Main extends JFrame implements ActionListener	
 {
 	private static final long serialVersionUID = 1L;	//default warnung nullen
-	JButton testButton = new JButton("test");
+	JButton testButton = new JButton("test");		//Button mit Text "test"
+	JLabel testLabel = new JLabel();		//label komponent erstellt	
 	
 	public Main()
 	{
-		this.setBounds(100, 100, 300, 300);				//frame setzt position und größe vom fenster
-		this.setTitle("InfoAG - master");				//titel für das Fenster
-		this.setDefaultCloseOperation(EXIT_ON_CLOSE);	//Default close
-		this.setLayout(null);							//Layout null, müssen size von koponenten selbst setzen
+		this.setBounds(100, 100, 300, 300);		//frame setzt position und größe vom fenster
+		this.setTitle("InfoAG - master");		//titel für das Fenster
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);		//Default close
+		this.setLayout(null);		//Layout null, müssen size von koponenten selbst setzen
 	
-		testButton.setBounds(0, 0, 100, 100);			//position und Größe vom Button gesetzt
-		testButton.addActionListener(this);				//listener hinzugefügt
+		testButton.setBounds(0, 0, 100, 100);		//position und Größe vom Button gesetzt
+		testButton.addActionListener(this);		//listener hinzugefügt
 		
-		this.add(testButton);							//button komponent wird zum frame geadded
+		testLabel.setBounds(100, 0, 100, 100);		//pos + size 
+		testLabel.setText("Oh hey");
+		
+		this.add(testButton);		//button komponent wird zum frame geadded
+		this.add(testLabel);		//label zum frame geadded
 	}
 	
 	public static void main(String[] args)
 	{
-		Main mainheader = new Main();					//Main() wird erstellt 
-		mainheader.setVisible(true);					//mainheader wird sichtbar
+		Main mainheader = new Main();		//Main() wird erstellt 
+		mainheader.setVisible(true);		//mainheader wird sichtbar
 		
-		System.out.println("Moin InfoAG!");				//test print
+		System.out.println("Moin InfoAG!");		//test print
 	}
 
 	@Override
