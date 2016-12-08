@@ -1,5 +1,6 @@
 /*
- InfoAG-Schulprojekt. Anfang erstellt von Michael Kutowski
+ InfoAG-Schulprojekt: Anfangsklasse erstellt von Michael Kutowski
+ Kommentare sind nicht alle auf gleichen Tabmaß wegen GitHub Anzeige- Kommentarisierung müssen wir besprechen-
  */
 
 package MMC;
