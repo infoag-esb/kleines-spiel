@@ -26,7 +26,7 @@ public class Sound
 	public Sound() 
 	{
 		//File Array wird ersetzt durch Oberordner Array
-		resFiles = new File("res").listFiles();
+		resFiles = new File("res/Sounds").listFiles();
 	}
 
 	/**zeigt alle Pfade im Array an, damit man im spieleSound den richtigen Index wählen kann*/
