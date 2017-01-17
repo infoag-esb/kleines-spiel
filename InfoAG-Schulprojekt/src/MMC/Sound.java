@@ -12,9 +12,8 @@ import javax.sound.sampled.Mixer;
  * 
  * Spielt AudioFiles ab, egal welcher länge, auch looped <p>
  * Diese sind nun abbrechbar und können übereinander gespielt werden<p>
- * Hat standard Files in einem ansprechbaren Array, welche gezeigt werden können <p>
+ * Hat standard URLs in einem ansprechbaren URL[], welche gezeigt werden können <p>
  * Kann Audio Mixer listen zum Debuggen<p>
- * Außerdem kann gain live verstellt werden und Lautstärke beinflussen <p>
  * 
  * @author Michael_Kutowski 
  * */
@@ -47,7 +46,7 @@ public class Sound
 	}
 
 	/** simple Sound Ausgabe, kann überlappend gespielt werden, lautstaerke kann vorher gestellt werden */
-	public void spieleSound(int FileIndex) 
+	public void spieleSound(int FileIndex, boolean loopedAbspielen) 
 	{
 		new Thread(() -> 
 		{
@@ -61,6 +60,8 @@ public class Sound
     			FloatControl volumeControl = (FloatControl) audioClip.getControl(FloatControl.Type.MASTER_GAIN);
     			
     			audioClip.start();					//audio daten gestreamt
+    			if (loopedAbspielen == true)
+    				audioClip.loop(Clip.LOOP_CONTINUOUSLY);
     			
     			while (audioClip.getMicrosecondLength() != audioClip.getMicrosecondPosition())
     				volumeControl.setValue(gain); 
@@ -72,36 +73,6 @@ public class Sound
     			}
     		}
     		catch (Exception e) { e.printStackTrace(); }	//Wenn irgendein Fehler - Output
-		}).start();
-	}
-	
-	/** Wiedergabe von .wav Datei, exakt wie spieleSound(), aber looped*/
-	public void spieleLoopedSound(int FileArrayIndex)	
-	{
-		new Thread(() ->
-		{
-			try		
-			{
-				AudioInputStream audioIn = AudioSystem.getAudioInputStream( resFiles[FileArrayIndex] );	//AudioEingabe erstellt mit File
-				
-				Clip audioClip = AudioSystem.getClip();
-				audioClip.open(audioIn);			//clip öffnet AudioInputStream Datei
-				
-				FloatControl volumeControl = (FloatControl) audioClip.getControl(FloatControl.Type.MASTER_GAIN);
-				
-				audioClip.start();					//audio daten gestreamt
-				audioClip.loop(Clip.LOOP_CONTINUOUSLY);
-				
-				while (audioClip.getMicrosecondLength() != audioClip.getMicrosecondPosition())
-    				volumeControl.setValue(gain); 
-    			
-    			if (audioClip.getMicrosecondLength() == audioClip.getMicrosecondPosition())
-    			{
-    				audioClip.stop();
-    				audioClip.close();
-    			}
-			}
-			catch (Exception e) { e.printStackTrace(); }	//Wenn irgendein Fehler - Output
 		}).start();
 	}
 }
