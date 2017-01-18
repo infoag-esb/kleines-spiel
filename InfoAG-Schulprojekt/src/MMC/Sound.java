@@ -14,6 +14,8 @@ import javax.sound.sampled.Mixer;
  * Diese sind nun abbrechbar und können übereinander gespielt werden<p>
  * Kann Audio Mixer listen zum Debuggen<p>
  * 
+ * TODO: debug mehrmalige Abspielung
+ * 
  * @author Michael_Kutowski 
  * */
 public class Sound
@@ -36,7 +38,7 @@ public class Sound
 		{
         	try		
     		{
-    			AudioInputStream audioIn = AudioSystem.getAudioInputStream( new File("res/Sounds/" + FileName) );	//AudioEingabe erstellt mit File
+    			AudioInputStream audioIn = AudioSystem.getAudioInputStream( new File("res/Sounds/" + FileName + ".wav") );	//AudioEingabe erstellt mit File
     			
     			Clip audioClip = AudioSystem.getClip();
     			audioClip.open(audioIn);			//clip öffnet AudioInputStream Datei		
@@ -66,7 +68,7 @@ public class Sound
 		{
         	try		
     		{
-    			AudioInputStream audioIn = AudioSystem.getAudioInputStream( new File("res/Sounds/" + FileName) );	//AudioEingabe erstellt mit File
+    			AudioInputStream audioIn = AudioSystem.getAudioInputStream( new File("res/Sounds/" + FileName + ".wav") );	//AudioEingabe erstellt mit File
     			
     			Clip audioClip = AudioSystem.getClip();
     			audioClip.open(audioIn);			//clip öffnet AudioInputStream Datei		
