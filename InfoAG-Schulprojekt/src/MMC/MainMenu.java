@@ -72,15 +72,20 @@ public class MainMenu extends JFrame implements ActionListener
 	public void actionPerformed(ActionEvent event) 
 	{
 		if (event.getSource() == buttons[0])
-			sounds.spieleSound("schiff_schuss_pew1");
+		{
+			LevelDesign1 level = new LevelDesign1();	//start levelDesign
+			level.setVisible(true);
+		}
 		
 		else if (event.getSource() == buttons[1])
 			for (int i = 0; i < buttons.length - 1; i++) 
 				buttons[i].setVisible(false);
 	
 		else if (event.getSource() == buttons[2])
+		{	
+			sounds.spieleSound("schiff_schuss_pew1");
 			this.dispose();
-		
+		}
 		else if (event.getSource() == buttons[3])
 			this.initState();
 		
