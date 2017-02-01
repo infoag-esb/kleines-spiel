@@ -73,7 +73,7 @@ public class MainMenu extends JFrame implements ActionListener
 	{
 		if (event.getSource() == buttons[0])
 		{
-			LevelDesign1 level = new LevelDesign1();	//start levelDesign
+			LevelDesign1 level = new LevelDesign1(1);	//start levelDesign
 			level.setVisible(true);
 		}
 		

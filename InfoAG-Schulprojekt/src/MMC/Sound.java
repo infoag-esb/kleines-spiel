@@ -38,7 +38,7 @@ public class Sound
 		{
         	try		
     		{
-    			AudioInputStream audioIn = AudioSystem.getAudioInputStream( new File("res/Sounds/" + FileName + ".wav") );	//AudioEingabe erstellt mit File
+    			AudioInputStream audioIn = AudioSystem.getAudioInputStream( new File("InfoAG-Schulprojekt/res/Sounds/" + FileName + ".wav") );	//AudioEingabe erstellt mit File
     			
     			Clip audioClip = AudioSystem.getClip();
     			audioClip.open(audioIn);			//clip öffnet AudioInputStream Datei		
@@ -68,7 +68,7 @@ public class Sound
 		{
         	try		
     		{
-    			AudioInputStream audioIn = AudioSystem.getAudioInputStream( new File("res/Sounds/" + FileName + ".wav") );	//AudioEingabe erstellt mit File
+    			AudioInputStream audioIn = AudioSystem.getAudioInputStream( new File("InfoAG-Schulprojekt/res/Sounds/" + FileName + ".wav") );	//AudioEingabe erstellt mit File
     			
     			Clip audioClip = AudioSystem.getClip();
     			audioClip.open(audioIn);			//clip öffnet AudioInputStream Datei		

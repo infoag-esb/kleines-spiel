@@ -16,18 +16,17 @@ public class LevelDesign1 extends JFrame implements ActionListener
 	
 	Sound sounds = new Sound();
 	
-	JButton button = new JButton("Test");
-	public JButton[][] buttons = new JButton[200][200]; 
-	public Dimension screenSize = new Dimension(); 
-	public int screenHeight, screenWidth, buttonAmountCol, buttonAmountRow; 
+	private JButton[][] buttonArray = new JButton[200][200]; 
+	private Dimension screenSize = new Dimension(); 
+	private int screenHeight, screenWidth, buttonAmountCol, buttonAmountRow; 
 	
 	public static void main(String[] args)
 	{
-		LevelDesign1 level = new LevelDesign1();	//start levelDesign
+		LevelDesign1 level = new LevelDesign1(1);	//start levelDesign
 		level.setVisible(true);
 	}
 	
-	public LevelDesign1()
+	public LevelDesign1(int schwierigkeitsgrad)
 	{
 		System.out.println("ay ay captain"); //Test-print
 		
@@ -63,30 +62,26 @@ public class LevelDesign1 extends JFrame implements ActionListener
 				
 				if(random == 0) //if the random is zero -> create button
 				{
-					buttons[row][col] = new JButton(counter.toString()); 
-					buttons[row][col].setBounds(row*generalButtonSize, col*generalButtonSize, generalButtonSize, generalButtonSize); //create a button with "generalButtonSize" proportions 	
-					buttons[row][col].addActionListener(this);
-					this.add(buttons[row][col]); 
+					buttonArray[row][col] = new JButton(counter.toString()); 
+					buttonArray[row][col].setBounds(row*generalButtonSize, col*generalButtonSize, generalButtonSize, generalButtonSize); //create a button with "generalButtonSize" proportions 	
+					buttonArray[row][col].addActionListener(this);
+					this.add(buttonArray[row][col]); 
 				}
-	
 			}
 		}
-		//if (buttons[0][0] != null)
-		//	buttons[0][0].setText("Test");
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent event) 
 	{
-		for(int i = 0; i < buttonAmountCol; i++)
+		for(int i = 0; i < buttonAmountCol; i++)		//check all columns
 		{	
-			for(int j = 0; j < buttonAmountRow; j++)
+			for(int j = 0; j < buttonAmountRow; j++)   //check all rows
 			{
-				if(event.getSource() == buttons[i][j])		//button click
+				if(event.getSource() == buttonArray[i][j])		//button click
 				{
 					System.out.println("wurde Gedrückt");		//debug print
-					sounds.spieleSound("schiff_schuss_pew1");
-			
+					sounds.spieleSound("fusching");				//play sound
 				}
 			}
 		}	
