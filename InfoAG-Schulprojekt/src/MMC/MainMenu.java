@@ -18,7 +18,7 @@ import javax.swing.JFrame;
 public class MainMenu extends JFrame implements ActionListener
 {
 	
-	asddasd
+	asdd
 	private static final long serialVersionUID = 1L;
 
 	final Dimension frameSize = new Dimension(800, 600);
